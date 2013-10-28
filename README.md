@@ -3,4 +3,4 @@ This is a little application to manage todos and project of [Hack.lenotta.com](h
 
 We've managed to reuse meteor 'Todo' example and given it a style refresh, plus accounting access.
 
-![Alt text](.ReadmePics.png "Restyled Todo")
+![Alt text](.ReadmePics/sc.png "Restyled Todo")
