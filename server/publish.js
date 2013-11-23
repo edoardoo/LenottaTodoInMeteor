@@ -1,10 +1,13 @@
-// Lists -- {name: String}
+Lists = {name: String}
 Lists = new Meteor.Collection("lists");
+
+
 
 // Publish complete set of lists to all clients.
 Meteor.publish('lists', function () {
   return Lists.find();
 });
+
 
 
 // Todos -- {text: String,
@@ -14,7 +17,33 @@ Meteor.publish('lists', function () {
 //           timestamp: Number}
 Todos = new Meteor.Collection("todos");
 
+Lists.allow({
+    insert: function(userId, lists){
+        return true;
+    },
+    update: function(userId, lists){
+        return true;
+    },
+    remove: function(userId, lists){
+        return true;
+    }
+});
+
+Todos.allow({
+
+    insert: function(userId, todos){
+        return true;
+    },
+    
+    update: function(userId, todos){
+        return true;
+    },
+    remove: function(userId, todos){
+        return true;
+    }
+});
 // Publish all items for requested list_id.
+
 Meteor.publish('todos', function (list_id) {
   check(list_id, String);
   return Todos.find({list_id: list_id});
